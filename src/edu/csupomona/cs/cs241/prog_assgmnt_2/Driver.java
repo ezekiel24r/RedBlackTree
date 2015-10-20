@@ -8,44 +8,43 @@ import java.util.Random;
  * the numbers can be easily changed so that thousand of values can be added and removed.
  * Tested up to 800000 and still works
  */
+
+
+
 public class Driver {
+
+    //change these values to add an remove a large amount of values.
+    static public int addedVals = 800; //the amount to be added
+    static public int subVals = 750; //the amount to then be removed
+
     public static void main(String[] args) {
         RB_Tree<Integer, Integer> rbt = new RB_Tree<>();
         Random rand = new Random();
         rand.setSeed(System.currentTimeMillis());
-        //int  n = rand.nextInt(50) + 1;
-        Integer [] nArr = new Integer [800];
-        for(int i = 0; i<800; i++){
+        Integer [] nArr = new Integer [addedVals];
+        for(int i = 0; i<addedVals; i++){
             Integer k = rand.nextInt(9 + 1);
             nArr[i] = k;
             rbt.insert(k, rand.nextInt(99)+1);
-            //System.out.println("nArr[" + i + "] = " + k);
         }
-        for(int i = 0; i<785; i++){
+        for(int i = 0; i<subVals; i++){
             rbt.remove(nArr[i]);
         }
 
-        //rbt.insert(50, 11);
 
-
-        //System.out.println("Value of node with key=50 is: " + rbt.lookup(50));
-
-        //BTreePrinter.printNode(rbt.root);
         System.out.println(rbt.toPrettyString());
-        System.out.println(rbt.maxDepth(rbt.root));
         System.out.println();
-        System.out.println(verify(rbt.root));
         System.out.println("Count: " + rbt.count);
 
         rbt.insert(50, 99);
         System.out.println(rbt.toPrettyString());
         System.out.println("removing node with key 50 returns: " + rbt.remove(50));
-        System.out.println(rbt.lookup(51));
+        System.out.println();
         System.out.println(rbt.toPrettyString());
 
 
         //BTreePrinter.printNode(rbt.root);
-       // System.out.println(rbt.verify(rbt.root));
+        //System.out.println(rbt.verify(rbt.root));
         //rbt.myPString();
     }
 
