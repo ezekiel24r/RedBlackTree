@@ -23,9 +23,9 @@ public class Driver {
         rand.setSeed(System.currentTimeMillis());
         Integer [] nArr = new Integer [addedVals];
         for(int i = 0; i<addedVals; i++){
-            Integer k = rand.nextInt(63 + 1);
+            Integer k = rand.nextInt(64 + 1);//keys range from 0-64
             nArr[i] = k;
-            rbt.insert(k, rand.nextInt(99)+1);
+            rbt.insert(k, rand.nextInt(99)+1);//values range from 0-99
         }
         for(int i = 0; i<subVals; i++){
             rbt.remove(nArr[i]);
