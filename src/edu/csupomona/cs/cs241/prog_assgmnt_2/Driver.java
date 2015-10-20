@@ -15,7 +15,7 @@ public class Driver {
 
     //change these values to add an remove a large amount of values.
     static public int addedVals = 800; //the amount to be added
-    static public int subVals = 750; //the amount to then be removed
+    static public int subVals = 790; //the amount to then be removed
 
     public static void main(String[] args) {
         RB_Tree<Integer, Integer> rbt = new RB_Tree<>();
@@ -23,7 +23,7 @@ public class Driver {
         rand.setSeed(System.currentTimeMillis());
         Integer [] nArr = new Integer [addedVals];
         for(int i = 0; i<addedVals; i++){
-            Integer k = rand.nextInt(9 + 1);
+            Integer k = rand.nextInt(63 + 1);
             nArr[i] = k;
             rbt.insert(k, rand.nextInt(99)+1);
         }
